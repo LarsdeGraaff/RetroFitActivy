@@ -25,6 +25,13 @@
         android:onClick="sharedPref"
         android:text="Save/Get/Clear" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goToFragment"
+        android:text="fragmentPage"
+        />
+
 
     <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
