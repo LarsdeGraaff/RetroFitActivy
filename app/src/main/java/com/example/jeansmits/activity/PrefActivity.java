@@ -14,15 +14,15 @@ import android.widget.EditText;
 /**
  * Created by jeansmits on 8/09/15.
  */
-public class PrefActivity extends AppCompatActivity{
+public class PrefActivity extends AppCompatActivity {
 
-    public void buttonFoto(View view){
-        Intent intent=new Intent(this, FotoActivity.class );
+    public void buttonFoto(View view) {
+        Intent intent = new Intent(this, FotoActivity.class);
         startActivity(intent);
         finish();
     }
 
-    public final static String PREF_NAME="editTextTeamname";
+    public final static String PREF_NAME = "editTextTeamname";
     public EditText textTeamName;
     public EditText textSporthal;
     public Button buttonSave;
@@ -35,16 +35,16 @@ public class PrefActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.preference);
 
-        textTeamName= (EditText) findViewById(R.id.editTextTeamname);
-        textSporthal= (EditText) findViewById(R.id.editTextSportzaal);
-        buttonSave= (Button) findViewById(R.id.buttonSave);
-        buttonClear= (Button) findViewById(R.id.buttonClear);
-        buttonGet= (Button) findViewById(R.id.buttonGet);
+        textTeamName = (EditText) findViewById(R.id.editTextTeamname);
+        textSporthal = (EditText) findViewById(R.id.editTextSportzaal);
+        buttonSave = (Button) findViewById(R.id.buttonSave);
+        buttonClear = (Button) findViewById(R.id.buttonClear);
+        buttonGet = (Button) findViewById(R.id.buttonGet);
 
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String inputText=textTeamName.getText().toString();
+                String inputText = textTeamName.getText().toString();
                 setTeamPreference(PrefActivity.this, inputText);
             }
         });
@@ -52,33 +52,31 @@ public class PrefActivity extends AppCompatActivity{
         buttonGet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String inpuText=getTeamPreference(PrefActivity.this);
+                String inpuText = getTeamPreference(PrefActivity.this);
                 textTeamName.setText(inpuText);
             }
         });
     }
 
 
-    public static String getTeamPreference(Context context){
+    public static String getTeamPreference(Context context) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         return sharedPreferences.getString(PREF_NAME, null);
     }
 
-    public static void setTeamPreference(Context context, String name){
-        SharedPreferences sharedPreferences=PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor= sharedPreferences.edit();
+    public static void setTeamPreference(Context context, String name) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(PREF_NAME, name);
         editor.apply();
     }
 
-    public static void clearTeamPreference (Context context){
-        SharedPreferences sharedPreferences=PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor=sharedPreferences.edit();
+    public static void clearTeamPreference(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.remove(PREF_NAME);
         editor.apply();
     }
-
-
 
 
 }

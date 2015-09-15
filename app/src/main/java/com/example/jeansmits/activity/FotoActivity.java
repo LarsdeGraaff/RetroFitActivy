@@ -26,7 +26,7 @@ public class FotoActivity extends AppCompatActivity {
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     private static final int MEDIA_TYPE_IMAGE = 1;
     private File file;
-    public ImageView   imageViewPicture;
+    public ImageView imageViewPicture;
 
     public void takePicture(View view) {
         // create Intent to take a picture and return control to the calling application
@@ -46,16 +46,15 @@ public class FotoActivity extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(resultCode==RESULT_OK){
-           if (requestCode==CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE){
+        if (resultCode == RESULT_OK) {
+            if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
 
-               imageViewPicture= (ImageView) findViewById(R.id.imageViewPictureTaken);
-               Picasso.with(this).load("file://" + file.getAbsolutePath() ).into(imageViewPicture);
+                imageViewPicture = (ImageView) findViewById(R.id.imageViewPictureTaken);
+                Picasso.with(this).load("file://" + file.getAbsolutePath()).into(imageViewPicture);
 
-           }
+            }
 
         }
-
 
 
     }
@@ -64,7 +63,6 @@ public class FotoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.foto);
-
     }
 
 

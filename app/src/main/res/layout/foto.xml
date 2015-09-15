@@ -10,4 +10,9 @@
         android:text="Take Picture"
         android:id="@+id/button2"
         android:onClick="takePicture"/>
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/imageViewPictureTaken"/>
 </LinearLayout>

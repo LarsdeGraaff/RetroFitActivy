@@ -38,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
+    public void goToFragment(View view){
+
+        Intent intent=new Intent(this, FragmentActivity.class);
+        startActivity(intent);
+        finish();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

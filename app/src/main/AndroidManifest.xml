@@ -32,6 +32,7 @@
 
         <activity android:name=".PrefActivity"></activity>
         <activity android:name=".FotoActivity"></activity>
+        <activity android:name=".FragmentActivity"></activity>
     </application>
 
 </manifest>
